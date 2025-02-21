@@ -1,0 +1,28 @@
+בשאלת התיירים, שנה את ה - CREATE בטבלת התיירים - והסר את ה- FK של הטיול
+צור טבלה נוספת של מס' טיול ומס' תייר
+הוסף באמצעות INSERT מספר טיולים ומספר תיירים משובצים
+
+CREATE TABLE tourists (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    passport_number TEXT UNIQUE NOT NULL,
+    date_of_birth DATE NOT NULL,
+    gender TEXT CHECK(gender IN ('Male', 'Female', 'Other')) NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    phone TEXT UNIQUE NOT NULL,
+    country_id INTEGER NOT NULL,
+    tour_id INTEGER NULL,
+    FOREIGN KEY (country_id) REFERENCES countries(id),
+);
+
+CREATE TABLE tour_numbers (
+    trip_number INTEGER PRIMARY KEY ,
+    tourist_number INTEGER,
+    );
+
+trip_number = input('enter trip number:')
+tourist_number = input('enter tourist number:')
+
+INSERT INTO tour_numbers
+VALUES (?,?)''', (trip_number,tourist_number)
